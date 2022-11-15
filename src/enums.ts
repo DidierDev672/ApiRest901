@@ -1,14 +1,14 @@
-export enum Weather {
-    Sunny = "sunny",
-    Rainy = "rainy",
-    Cloudy = "cloudy",
-    Windy = "windy",
-    Stormy = "stormy"
+export enum Category {
+    Meter = "medidor",
+    Biometrics = "biometria",
+    Sensor = "sensor",
+    Feed = "alimentador",
+    Software = "software"
 };
 
-export enum Visibility {
-    Greet = "great",
-    Good = "good",
-    Ok = "ok",
-    Poor = "poor"
-};
+// export enum Visibility {
+//     Greet = "great",
+//     Good = "good",
+//     Ok = "ok",
+//     Poor = "poor"
+// };
