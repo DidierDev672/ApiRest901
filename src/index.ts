@@ -1,5 +1,5 @@
 import express = require("express"); // EsModule y commonJS
-import diaryRouter from "./routes/diaries";
+import productRouter from "./routes/products";
 const app: express.Application = express();
 app.use(express.json()); // middleware que transforma la req.body a un json
 
@@ -10,7 +10,7 @@ app.get("/ping", function (_req, res) {
   res.send("pong");
 });
 
-app.use("/api/diaries", diaryRouter);
+app.use("/api/products", productRouter);
 
 app.listen(PORT, function () {
   console.log(`Server running on port ${PORT}`);
