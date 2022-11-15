@@ -1,14 +1,16 @@
-import { Weather, Visibility } from "./enums";
+import { Category } from "./enums";
 
-export interface DiaryEntry {
+export interface ProductEntry {
     id: number,
-    date: string,
-    weather: Weather,
-    visibility: Visibility,
-    comment: string
+    category: Category,
+    name_product: string,
+    quantity: number,
+    price: number,
+    description: string,
+    date_entry: string,
 };
 
 // export type NonSensitiveInfoDiaryEntry = Pick<DiaryEntry,"visibility">;
 
-export type NonSensitiveInfoDiaryEntry = Omit<DiaryEntry, "comment">;
-export type NewDiaryEntry = Omit<DiaryEntry, "id">;
+export type NonSensitiveInfoProductEntry = Omit<ProductEntry, "description">;
+export type NewProductEntry = Omit<ProductEntry, "id">;
