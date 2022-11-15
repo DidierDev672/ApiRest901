@@ -1,12 +1,36 @@
-import {  NewDiaryEntry } from "./types";
-import {  Weather, Visibility } from "./enums";
+import {  NewProductEntry } from "./types";
+import {  Category } from "./enums";
 
-const parseComment = (commentFromRequest: any): string => {
-    if(!isString(commentFromRequest)){
-        throw new Error("Incorrect or missing comment");
+const parseDescription = (descriptionFromRequest: any): string => {
+    if(!isString(descriptionFromRequest)){
+        throw new Error("Incorrect or missing description");
     }
 
-    return  commentFromRequest;
+    return  descriptionFromRequest;
+};
+
+const parseNameProduct = (nameproductFromRequest: any): string => {
+    if(!isString(nameproductFromRequest)){
+        throw new Error("Incorrect or missing name product");
+    }
+
+    return nameproductFromRequest;
+};
+
+const parseQuantity = (quantityFromRequest: any): number => {
+    if(!isNumber(quantityFromRequest)){
+        throw new Error("Incorrect or missing quantity");
+    }
+
+    return quantityFromRequest;
+};
+
+const parsePrice = (priceFromRequest: any):  number => {
+    if(!isNumber(priceFromRequest)){
+        throw new Error("Incorrect or missing price");
+    }
+
+    return priceFromRequest;
 };
 
 const parseDate = (dateFromRequest: any): string => {
@@ -17,24 +41,17 @@ const parseDate = (dateFromRequest: any): string => {
     return dateFromRequest;
 };
 
-const parseWeather = (weatherFromRequest: any): Weather => {
-    if(!isString(weatherFromRequest) || !isWeather(weatherFromRequest)){
+const parseCategory = (CategoryFromRequest: any): Category => {
+    if(!isString(CategoryFromRequest) || !isCategory(CategoryFromRequest)){
         throw new Error("Incorrect or missing Weather");
     }
 
-    return weatherFromRequest;
+    return CategoryFromRequest;
 };
 
-const parseVisibility = (visibilityFromRequest:any): Visibility => {
-    if(!isString(visibilityFromRequest) || !isVisibility(visibilityFromRequest)){
-        throw new Error("Incorrect or missing Visibility");
-    }
 
-    return visibilityFromRequest;
-};
-
-const isWeather = (param: any): boolean => {
-    return Object.values(Weather).includes(param);
+const isCategory = (param: any): boolean => {
+    return Object.values(Category).includes(param);
 };
 
 const isString = (string: string): boolean => {
@@ -45,16 +62,19 @@ const isDate = (string: string): boolean => {
     return typeof string === "string";
 };
 
-const isVisibility = (param: any): boolean => {
-    return Object.values(Visibility).includes(param);
+const isNumber = (number: number): boolean => {
+    return typeof number === "number";
 };
 
-const toNewDiaryEntry = (object:any): NewDiaryEntry => {
-    const newEntry: NewDiaryEntry = {
-        comment: parseComment(object.comment),
-        date: parseDate(object.date),
-        weather: parseWeather(object.weather),
-        visibility: parseVisibility(object.visibility),
+
+const toNewDiaryEntry = (object:any): NewProductEntry => {
+    const newEntry: NewProductEntry = {
+        description: parseDescription(object.description),
+        name_product: parseNameProduct(object.name_product),
+        quantity: parseQuantity(object.quantity),
+        price: parsePrice(object.price),
+        date_entry: parseDate(object.date_entry),
+        category: parseCategory(object.category),
     };
 
     return newEntry;
