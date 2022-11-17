@@ -1,0 +1,21 @@
+import { Router } from "express";
+import {getProductsController, getProductController, createProductController, updateProductController, deleteProductController } from "../controllers/productController";
+
+class Product {
+    public router: Router;
+    constructor(){
+        this.router = Router();
+        this.routes();
+    }
+
+    routes(){
+        this.router.get("/", getProductsController);
+        this.router.get("/:id", getProductController);
+        this.router.post("/", createProductController);
+        this.router.put("/:id", updateProductController);
+        this.router.delete("/:id", deleteProductController);
+    }
+}
+
+const product = new Product();
+export default product.router;
