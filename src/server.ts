@@ -17,7 +17,7 @@ class Server {
 
     config(){
         // Connection mongoDB atlas
-        const mongodb_atlas = "mongodb+srv://ariasd672:123@cluster0.wmwjk.mongodb.net/901-data?retryWrites=true&w=majority";
+        const mongodb_atlas: any = process.env.DB_CONN_STRIGN;
         mongoose
             .connect(mongodb_atlas)
             .then(() => console.log("Connected to database"))

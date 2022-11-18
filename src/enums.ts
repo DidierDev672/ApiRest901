@@ -5,10 +5,3 @@ export enum Category {
     Feed = "alimentador",
     Software = "software"
 };
-
-// export enum Visibility {
-//     Greet = "great",
-//     Good = "good",
-//     Ok = "ok",
-//     Poor = "poor"
-// };
