@@ -2,6 +2,7 @@ import express from "express";
 import morgan from "morgan";
 import productsRoutes from "./routes/productRoute";
 import usersRoutes from "./routes/userRoute";
+import shoppingRoutes from "./routes/shoppingRoute";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -35,6 +36,7 @@ class Server {
     routes(){
         this.app.use("/api/products", productsRoutes);
         this.app.use("/api/users", usersRoutes);
+        this.app.use("/api/shoppings", shoppingRoutes);
     }
 
     start(){
